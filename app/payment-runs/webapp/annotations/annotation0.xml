@@ -3,7 +3,22 @@
   <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
     <edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
   </edmx:Reference>
+  <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/Common.xml">
+    <edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+  </edmx:Reference>
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="annotation0"/>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="annotation0">
+
+      <!-- PaymentRuns Status criticality -->
+      <Annotations Target="PaymentService.PaymentRuns/Status">
+        <Annotation Term="Common.Text">
+          <Apply Function="odata.concat">
+            <Path>Status</Path>
+          </Apply>
+        </Annotation>
+        <Annotation Term="UI.Criticality" Path="StatusCriticality"/>
+      </Annotations>
+
+    </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

@@ -3,9 +3,16 @@ using com.sap.payments as payments from '../db/schema';
 service PaymentService @(path: '/payment') {
 
   @readonly
-  entity PaymentRuns as projection on payments.PaymentRuns {
+  entity PaymentRuns as select from payments.PaymentRuns {
     *,
-    Payments
+    Payments,
+    case Status
+      when '01' then 2
+      when '02' then 2
+      when '03' then 3
+      when '04' then 1
+      else 0
+    end as StatusCriticality : Integer
   };
 
   @readonly

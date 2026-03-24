@@ -1,5 +1,5 @@
 {
-  "_version": "1.65.0",
+  "_version": "1.49.0",
 
   "sap.app": {
     "id":          "com.sap.payments.paymentruns",
@@ -12,7 +12,8 @@
         "uri":  "/payment/",
         "type": "OData",
         "settings": {
-          "odataVersion": "4.0"
+          "odataVersion": "4.0",
+          "localUri": "localService/metadata.xml"
         }
       }
     },
@@ -34,6 +35,7 @@
       "libs": {
         "sap.m":            {},
         "sap.ui.core":      {},
+        "sap.ui.layout":    {},
         "sap.uxap":         {},
         "sap.fe.templates": {},
         "sap.fe.core":      {}
@@ -95,7 +97,7 @@
               "controlConfiguration": {
                 "@com.sap.vocabularies.UI.v1.LineItem": {
                   "tableSettings": {
-                    "type":         "ResponsiveTable",
+                    "type":          "ResponsiveTable",
                     "selectionMode": "None",
                     "enableExport":  true
                   }
@@ -125,26 +127,20 @@
               "content": {
                 "body": {
                   "sections": {
-                    "PaymentDetailsSection": {
+                    "PaymentDetails": {
                       "actions": {
                         "DownloadCSV": {
-                          "handlers": {
-                            "press": "com.sap.payments.paymentruns.ext.controller.ListReportExt#onDownloadCSV"
-                          },
+                          "press": "com.sap.payments.paymentruns.ext.controller.ListReportExt.onDownloadCSV",
                           "text":    "Download CSV",
                           "enabled": true
                         },
                         "DownloadXLSX": {
-                          "handlers": {
-                            "press": "com.sap.payments.paymentruns.ext.controller.ListReportExt#onDownloadXLSX"
-                          },
+                          "press": "com.sap.payments.paymentruns.ext.controller.ListReportExt.onDownloadXLSX",
                           "text":    "Download XLSX",
                           "enabled": true
                         },
                         "DownloadWithCards": {
-                          "handlers": {
-                            "press": "com.sap.payments.paymentruns.ext.controller.ListReportExt#onDownloadWithCards"
-                          },
+                          "press": "com.sap.payments.paymentruns.ext.controller.ListReportExt.onDownloadWithCards",
                           "text":    "Download with Cards",
                           "enabled": true
                         }
@@ -166,6 +162,16 @@
               "entitySet":             "PaymentDetails",
               "editableHeaderContent": false
             }
+          }
+        }
+      }
+    },
+
+    "extends": {
+      "extensions": {
+        "sap.ui.controllerExtensions": {
+          "sap.fe.templates.ListReport.ListReportController": {
+            "controllerName": "com.sap.payments.paymentruns.ext.controller.ListReportExt"
           }
         }
       }

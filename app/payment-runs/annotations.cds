@@ -29,7 +29,7 @@ annotate service.PaymentRuns with @(
     { $Type: 'UI.DataField', Value: PaymentCount,   Label: 'Payments'    },
     { $Type: 'UI.DataField', Value: TotalAmount,    Label: 'Total Amount'},
     { $Type: 'UI.DataField', Value: Currency,       Label: 'Currency'    },
-    { $Type: 'UI.DataField', Value: Status,         Label: 'Status'      },
+    { $Type: 'UI.DataFieldForAnnotation', Target: '@UI.DataPoint#Status', Label: 'Status' },
     { $Type: 'UI.DataField', Value: createdBy,      Label: 'Created By'  }
   ],
 
@@ -44,6 +44,12 @@ annotate service.PaymentRuns with @(
   UI.HeaderFacets: [
     { $Type: 'UI.ReferenceFacet', Target: '@UI.FieldGroup#HeaderKPIs', Label: 'Summary' }
   ],
+
+  UI.DataPoint #Status: {
+    Value:       Status,
+    Criticality: StatusCriticality,
+    Title:       'Status'
+  },
 
   UI.FieldGroup #HeaderKPIs: {
     Data: [

@@ -1,7 +1,7 @@
 {
   "name": "sap-cap-payment-details",
   "version": "1.0.0",
-  "description": "SAP CAPM Payment Details Download (Fiori Elements)",
+  "description": "SAP CAP – Payment Details Download (Fiori Elements)",
   "engines": { "node": ">=18" },
   "scripts": {
     "start":          "cds-serve",
