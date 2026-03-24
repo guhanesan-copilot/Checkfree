@@ -1,0 +1,6 @@
+PaymentRunID,RunDate,RunType,CompanyCode,PaymentMethod,RunDescription,Status,Currency,TotalAmount,PaymentCount
+F110-2024-001,2024-01-15,F110,1000,T,January Vendor Payments,04,USD,245670.50,12
+F110-2024-002,2024-02-15,F110,1000,C,February Check Run,04,USD,125340.00,8
+F110-2024-003,2024-03-01,DMEE,2000,T,EU Wire Transfers,03,EUR,389200.75,15
+F110-2024-004,2024-03-15,F110,1000,V,Card Payment Run Q1,04,USD,56890.25,6
+F110-2024-005,2024-04-01,F110,1000,T,April ACH Batch,02,USD,178900.00,10

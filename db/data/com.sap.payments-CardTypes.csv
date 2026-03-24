@@ -1,0 +1,5 @@
+CardTypeCode,Description,LogoColor
+VISA,Visa,#1A1F71
+MC,Mastercard,#EB001B
+AMEX,American Express,#007BC1
+DISC,Discover,#F76000
